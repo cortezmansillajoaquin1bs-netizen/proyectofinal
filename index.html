@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Precios de Alimentos | Desafío Web I</title>
+    <link rel="stylesheet" href="carpeta css\styles.css">
+</head>
+<body>
+    <header>
+        <h1>Simulador Web de Crisis Económica</h1>
+        <p>Haciendo visible el impacto de la inflación en el canastón familiar</p>
+        <h4>author: joaquin cortez mansilla</h4>
+    </header>
+
+    <nav>
+        <a href="#contexto">Contexto</a>
+        <a href="#simulador">Simulador</a>
+        <a href="#casos">Casos de Prueba</a>
+        <a href="#conclusiones">Conclusiones</a>
+    </nav>
+
+    <main>
+        
+        <section id="contexto" class="tarjeta-seccion">
+            <h2>Contexto del Desafío</h2>
+            <p>En el contexto actual que atraviesa el país, se observan problemas relacionados con el abastecimiento de carburantes, transporte, alimentos e incremento de precios[cite: 1]. Este simulador ayuda a comprender cómo estos factores afectan el consumo y la toma de decisiones familiares mediante modelos matemáticos sencillos[cite: 1].</p>
+        </section>
+        <section id="simulador" class="tarjeta-seccion">
+            <h2>Simulador de Precios de Alimentos</h2>
+            <p>Introduce los datos de un producto básico para evaluar el incremento de gastos.</p>
+            
+            <form id="formulario-simulador">
+                <div class="grupo-control">
+                    <label for="producto">Nombre del Producto:</label>
+                    <input type="text" id="producto" placeholder="Ej. Arroz, Papa, Aceite">
+                </div>
+                <div class="grupo-control">
+                    <label for="precio-inicial">Precio Anterior (Bs):</label>
+                    <input type="number" id="precio-inicial" step="0.1" min="0.01" placeholder="0.00">
+                </div>
+                <div class="grupo-control">
+                    <label for="precio-actual">Precio Actual (Bs):</label>
+                    <input type="number" id="precio-actual" step="0.1" min="0.01" placeholder="0.00">
+                </div>
+                <div class="grupo-control">
+                    <label for="cantidad-semana">Cantidad Consumida por Semana:</label>
+                    <input type="number" id="cantidad-semana" min="1" placeholder="Ej. 2">
+                </div>
+                <div class="grupo-control">
+                    <label for="semanas">Número de Semanas a Evaluar:</label>
+                    <input type="number" id="semanas" min="1" max="52" value="4">
+                </div>
+
+                <div class="botones-contenedor">
+                    <button type="button" id="btn-calcular" class="btn-accion">Calcular Impacto</button>
+                    <button type="button" id="btn-limpiar" class="btn-limpiar">Limpiar Datos</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="resultados" class="tarjeta-seccion oculto">
+            <h2>Resultados del Análisis</h2>
+            
+            <div class="malla-resultados">
+                <div class="tarjeta-resultado">
+                    <h3>Incremento por Unidad</h3>
+                    <p id="res-incremento">0.00 Bs</p>
+                </div>
+                <div class="tarjeta-resultado">
+                    <h3>Porcentaje de Aumento</h3>
+                    <p id="res-porcentaje">0%</p>
+                </div>
+                <div class="tarjeta-resultado">
+                    <h3>Gasto Total Anterior</h3>
+                    <p id="res-gasto-anterior">0.00 Bs</p>
+                </div>
+                <div class="tarjeta-resultado">
+                    <h3>Gasto Total Actual</h3>
+                    <p id="res-gasto-actual">0.00 Bs</p>
+                </div>
+                <div class="tarjeta-resultado" style="grid-column: 1 / -1;">
+                    <h3>Clasificación del Nivel de Gasto</h3>
+                    <p id="res-clasificacion" style="text-transform: uppercase;">Midiendo...</p>
+                </div>
+            </div>
+
+            <div class="resumen-final">
+                <h3>Diferencia de Gasto Total:</h3>
+                <p id="res-diferencia">Estás gastando 0.00 Bs más.</p>
+            </div>
+        </section>
+
+
+        <section id="casos" class="tarjeta-seccion">
+            <h2>Casos de Estudio para Probar</h2>
+            <p>Utiliza estos datos de prueba oficiales detallados en la guía para verificar el simulador[cite: 1]:</p>
+            <div class="tabla-responsiva">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Producto</th>
+                            <th>Precio Anterior</th>
+                            <th>Precio Actual</th>
+                            <th>Cantidad Mensual</th>
+                            <th>Resultado Esperado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><strong>Arroz</strong></td><td>8 Bs</td><td>11 Bs</td><td>10 unidades</td><td>Gasto Ant: 80Bs | Gasto Act: 110Bs | Dif: +30Bs[cite: 1]</td></tr>
+                        <tr><td><strong>Papa</strong></td><td>7 Bs</td><td>10 Bs</td><td>8 unidades</td><td>Gasto Ant: 56Bs | Gasto Act: 80Bs | Dif: +24Bs[cite: 1]</td></tr>
+                        <tr><td><strong>Aceite</strong></td><td>12 Bs</td><td>18 Bs</td><td>4 unidades</td><td>Gasto Ant: 48Bs | Gasto Act: 72Bs | Dif: +24Bs[cite: 1]</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+     
+        <section id="conclusions" class="tarjeta-seccion">
+            <h2>Conclusiones del Modelo</h2>
+            <p>Este simulador demuestra de manera cuantitativa cómo el aumento de precios afecta el presupuesto familiar[cite: 1]. Es una herramienta útil para comprender la pérdida del poder adquisitivo en contextos de crisis[cite: 1].</p>
+        </section>
+
+    </main>
+    <footer>
+        <p>&copy; 2026 - Proyecto de Evaluación Final</p>
+        <p>Desarrollado por: <strong>Estudiante de Programación Web I</strong></p>
+        <p style="margin-top: 10px;">
+            Código fuente disponible en: 
+            <a href="https://github.com/yadsiadax/anievent2026/" target="_blank" style="color: #18bc9c; font-weight: bold; text-decoration: underline;">Mi Repositorio de GitHub</a>
+            <a href="https://github.com/yadsiadax/anievent2026/" target="_blank" style="color: #18bc9c; font-weight: bold; text-decoration: underline;">Mi Repositorio de GitHub</a>
+        </p>
+    </footer>
+
+    <script src="carpeta js\script.js"></script>
+</body>
+</html>
