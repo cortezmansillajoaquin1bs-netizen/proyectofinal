@@ -29,6 +29,7 @@ proyecto-web-crisis/
 ├── js/
 │   └── script.js      # Lógica de programación y DOM
 └── README.md           # Documentación del proyecto
+```
 5. Instrucciones para Pruebas
 Para verificar el funcionamiento, se pueden utilizar los Casos de Estudio incluidos en la página[cite: 1]:
 
